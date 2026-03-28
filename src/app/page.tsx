@@ -5,14 +5,22 @@ import { themes } from '@/data/themes';
 import ThemeCard from '@/components/ThemeCard';
 import styles from './page.module.css';
 
+const CATEGORIES = ['All', 'Lofi', 'Anime', 'Retro', 'Minimal', 'Cyberpunk'];
+
 export default function Home() {
   const [search, setSearch] = useState('');
+  const [activeCategory, setActiveCategory] = useState('All');
 
-  const filteredThemes = themes.filter(theme => 
-    theme.name.toLowerCase().includes(search.toLowerCase()) ||
-    theme.tags.some(tag => tag.toLowerCase().includes(search.toLowerCase())) ||
-    theme.description.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredThemes = themes.filter(theme => {
+    const matchesSearch = 
+      theme.name.toLowerCase().includes(search.toLowerCase()) ||
+      theme.tags.some(tag => tag.toLowerCase().includes(search.toLowerCase())) ||
+      theme.description.toLowerCase().includes(search.toLowerCase());
+    
+    const matchesCategory = activeCategory === 'All' || theme.category === activeCategory;
+    
+    return matchesSearch && matchesCategory;
+  });
 
   return (
     <main className={styles.main}>
@@ -29,6 +37,18 @@ export default function Home() {
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
+
+        <div className={styles.filterContainer}>
+          {CATEGORIES.map(category => (
+            <button
+              key={category}
+              className={`${styles.filterBtn} ${activeCategory === category ? styles.activeFilter : ''}`}
+              onClick={() => setActiveCategory(category)}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
       </header>
 
       <section className={styles.gallery}>
@@ -38,8 +58,8 @@ export default function Home() {
           ))
         ) : (
           <div className={styles.noResults}>
-            <h3>No themes found matching "{search}"</h3>
-            <p>Try searching for different keywords or tags.</p>
+            <h3>No themes found matching your criteria</h3>
+            <p>Try adjusting your search or switching categories.</p>
           </div>
         )}
       </section>
