@@ -1,0 +1,17 @@
+name: "Aguasky (Minimal)"
+accent: "#a29bfe"
+background: "#f8f9fa"
+foreground: "#2d3436"
+background_image:
+  path: "images/themes/minimal/aguasky.jpg"
+opacity: 40
+terminal_colors:
+  normal:
+    black: "#2d3436"
+    red: "#ff7675"
+    green: "#55efc4"
+    yellow: "#ffeaa7"
+    blue: "#74b9ff"
+    magenta: "#a29bfe"
+    cyan: "#81ecec"
+    white: "#dfe6e9"

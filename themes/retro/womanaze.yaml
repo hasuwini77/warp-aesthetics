@@ -1,0 +1,17 @@
+name: "Womanaze (Retro)"
+accent: "#f83800"
+background: "#000000"
+foreground: "#f8f8f8"
+background_image:
+  path: "images/themes/retro/womanaze.jpg"
+opacity: 40
+terminal_colors:
+  normal:
+    black: "#000000"
+    red: "#a80020"
+    green: "#00a800"
+    yellow: "#f8b800"
+    blue: "#0058f8"
+    magenta: "#bc00bc"
+    cyan: "#3cbcfc"
+    white: "#f8f8f8"

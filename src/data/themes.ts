@@ -25,312 +25,1000 @@ export interface Theme {
   backgroundImage?: string;
   opacity?: number;
   tags: string[];
-  category: 'Lofi' | 'Anime' | 'Retro' | 'Minimal' | 'Cyberpunk';
+  category: 'Lofi' | 'Anime' | 'Retro' | 'Minimal' | 'Cyberpunk' | 'Nature';
 }
 
 export const themes: Theme[] = [
-  // --- LOFI CATEGORY ---
   {
-    id: 'lofi-study',
-    name: 'Lofi Study',
-    author: 'AestheticWarp',
-    description: 'The ultimate chill vibes. Soft purples and deep study focus.',
-    category: 'Lofi',
-    tags: ['Chill', 'Study', 'Purple'],
-    backgroundImage: 'https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?auto=format&fit=crop&w=1200&q=80',
-    opacity: 40,
-    colors: {
-      accent: '#ffb3ba',
-      background: '#1a1a2e',
-      foreground: '#e0e0e0',
-      terminal_colors: {
-        normal: {
-          black: '#1a1a2e',
-          red: '#ff6b6b',
-          green: '#b8e994',
-          yellow: '#f9ed69',
-          blue: '#a29bfe',
-          magenta: '#fd79a8',
-          cyan: '#81ecec',
-          white: '#e0e0e0',
-        },
-      },
-    },
+    "id": "cyberpunk-city-darky",
+    "name": "City Darky",
+    "author": "AestheticWarp",
+    "description": "A beautiful cyberpunk theme inspired by City Darky.",
+    "category": "Cyberpunk",
+    "tags": [
+      "Cyberpunk",
+      "City Darky"
+    ],
+    "backgroundImage": "images/themes/cyberpunk/city-darky.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#00f2ff",
+      "background": "#0a0a0a",
+      "foreground": "#ffffff",
+      "terminal_colors": {
+        "normal": {
+          "black": "#0a0a0a",
+          "red": "#ff0055",
+          "green": "#00ffcc",
+          "yellow": "#fdfd96",
+          "blue": "#0066ff",
+          "magenta": "#cc00ff",
+          "cyan": "#00f2ff",
+          "white": "#ffffff"
+        }
+      }
+    }
   },
   {
-    id: 'rainy-night',
-    name: 'Rainy Night',
-    author: 'AestheticWarp',
-    description: 'City lights blurred by rain on a window pane.',
-    category: 'Lofi',
-    tags: ['Rain', 'City', 'Blue'],
-    backgroundImage: 'https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=1200&q=80',
-    opacity: 35,
-    colors: {
-      accent: '#4cc9f0',
-      background: '#0b0c10',
-      foreground: '#c5c6c7',
-      terminal_colors: {
-        normal: {
-          black: '#0b0c10',
-          red: '#f72585',
-          green: '#4cc9f0',
-          yellow: '#fee440',
-          blue: '#4361ee',
-          magenta: '#7209b7',
-          cyan: '#4895ef',
-          white: '#c5c6c7',
-        },
-      },
-    },
+    "id": "cyberpunk-cyberpix",
+    "name": "Cyberpix",
+    "author": "AestheticWarp",
+    "description": "A beautiful cyberpunk theme inspired by Cyberpix.",
+    "category": "Cyberpunk",
+    "tags": [
+      "Cyberpunk",
+      "Cyberpix"
+    ],
+    "backgroundImage": "images/themes/cyberpunk/cyberpix.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#00f2ff",
+      "background": "#0a0a0a",
+      "foreground": "#ffffff",
+      "terminal_colors": {
+        "normal": {
+          "black": "#0a0a0a",
+          "red": "#ff0055",
+          "green": "#00ffcc",
+          "yellow": "#fdfd96",
+          "blue": "#0066ff",
+          "magenta": "#cc00ff",
+          "cyan": "#00f2ff",
+          "white": "#ffffff"
+        }
+      }
+    }
   },
   {
-    id: 'coffee-shop',
-    name: 'Coffee Shop',
-    author: 'AestheticWarp',
-    description: 'Warm, cozy, and caffeinated. Perfect for morning coding.',
-    category: 'Lofi',
-    tags: ['Warm', 'Cozy', 'Brown'],
-    backgroundImage: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=80',
-    opacity: 45,
-    colors: {
-      accent: '#d4a373',
-      background: '#1b1b1b',
-      foreground: '#faedcd',
-      terminal_colors: {
-        normal: {
-          black: '#1b1b1b',
-          red: '#e07a5f',
-          green: '#81b29a',
-          yellow: '#f2cc8f',
-          blue: '#3d405b',
-          magenta: '#9d8189',
-          cyan: '#abc4ff',
-          white: '#faedcd',
-        },
-      },
-    },
-  },
-
-  // --- ANIME CATEGORY ---
-  {
-    id: 'sakura-dream',
-    name: 'Sakura Dream',
-    author: 'AestheticWarp',
-    description: 'Soft pastel pinks and cherry blossom aesthetics.',
-    category: 'Anime',
-    tags: ['Pastel', 'Pink', 'Spring'],
-    backgroundImage: 'https://images.unsplash.com/photo-1528164344705-4754268799af?auto=format&fit=crop&w=1200&q=80',
-    opacity: 50,
-    colors: {
-      accent: '#ff85a1',
-      background: '#2d1b33',
-      foreground: '#fceef5',
-      terminal_colors: {
-        normal: {
-          black: '#2d1b33',
-          red: '#ff4d6d',
-          green: '#70e000',
-          yellow: '#ffca3a',
-          blue: '#1982c4',
-          magenta: '#ff85a1',
-          cyan: '#8ac926',
-          white: '#fceef5',
-        },
-      },
-    },
+    "id": "cyberpunk-gloomycity",
+    "name": "Gloomycity",
+    "author": "AestheticWarp",
+    "description": "A beautiful cyberpunk theme inspired by Gloomycity.",
+    "category": "Cyberpunk",
+    "tags": [
+      "Cyberpunk",
+      "Gloomycity"
+    ],
+    "backgroundImage": "images/themes/cyberpunk/gloomycity.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#00f2ff",
+      "background": "#0a0a0a",
+      "foreground": "#ffffff",
+      "terminal_colors": {
+        "normal": {
+          "black": "#0a0a0a",
+          "red": "#ff0055",
+          "green": "#00ffcc",
+          "yellow": "#fdfd96",
+          "blue": "#0066ff",
+          "magenta": "#cc00ff",
+          "cyan": "#00f2ff",
+          "white": "#ffffff"
+        }
+      }
+    }
   },
   {
-    id: 'shinkai-sky',
-    name: 'Shinkai Sky',
-    author: 'AnimeWarp',
-    description: 'Vibrant blue skies and fluffy clouds. Inspired by Makoto Shinkai.',
-    category: 'Anime',
-    tags: ['Sky', 'Blue', 'Cloud'],
-    backgroundImage: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80',
-    opacity: 30,
-    colors: {
-      accent: '#00b4d8',
-      background: '#03045e',
-      foreground: '#caf0f8',
-      terminal_colors: {
-        normal: {
-          black: '#03045e',
-          red: '#f07167',
-          green: '#00afb9',
-          yellow: '#fed9b7',
-          blue: '#0077b6',
-          magenta: '#90e0ef',
-          cyan: '#00b4d8',
-          white: '#caf0f8',
-        },
-      },
-    },
-  },
-
-  // --- RETRO CATEGORY ---
-  {
-    id: 'nes-classic',
-    name: 'NES Classic',
-    author: 'PixelWarp',
-    description: 'Authentic 8-bit aesthetic inspired by the legendary console.',
-    category: 'Retro',
-    tags: ['8-bit', 'Gaming', 'Red'],
-    backgroundImage: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80',
-    opacity: 50,
-    colors: {
-      accent: '#f83800',
-      background: '#000000',
-      foreground: '#f8f8f8',
-      terminal_colors: {
-        normal: {
-          black: '#000000',
-          red: '#a80020',
-          green: '#00a800',
-          yellow: '#f8b800',
-          blue: '#0058f8',
-          magenta: '#bc00bc',
-          cyan: '#3cbcfc',
-          white: '#f8f8f8',
-        },
-      },
-    },
+    "id": "neon-tokyo",
+    "name": "Neon Tokyo",
+    "author": "CyberWarp",
+    "description": "Vibrant neon lights reflecting on wet city streets.",
+    "category": "Cyberpunk",
+    "tags": [
+      "Neon",
+      "Night",
+      "Vibrant"
+    ],
+    "backgroundImage": "https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=1200&q=80",
+    "opacity": 30,
+    "colors": {
+      "accent": "#00f2ff",
+      "background": "#0a0a0a",
+      "foreground": "#ffffff",
+      "terminal_colors": {
+        "normal": {
+          "black": "#0a0a0a",
+          "red": "#ff0055",
+          "green": "#00ffcc",
+          "yellow": "#fdfd96",
+          "blue": "#0066ff",
+          "magenta": "#cc00ff",
+          "cyan": "#00f2ff",
+          "white": "#ffffff"
+        }
+      }
+    }
   },
   {
-    id: 'gameboy-green',
-    name: 'Pocket Green',
-    author: 'PixelWarp',
-    description: 'The iconic 4-shade green palette of the original handheld.',
-    category: 'Retro',
-    tags: ['Handheld', 'Green', 'Dot-Matrix'],
-    backgroundImage: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80',
-    opacity: 40,
-    colors: {
-      accent: '#306230',
-      background: '#9bbc0f',
-      foreground: '#0f380f',
-      terminal_colors: {
-        normal: {
-          black: '#0f380f',
-          red: '#306230',
-          green: '#8bac0f',
-          yellow: '#9bbc0f',
-          blue: '#306230',
-          magenta: '#8bac0f',
-          cyan: '#8bac0f',
-          white: '#9bbc0f',
-        },
-      },
-    },
-  },
-
-  // --- MINIMAL CATEGORY ---
-  {
-    id: 'pastel-horizon',
-    name: 'Pastel Horizon',
-    author: 'SoftWarp',
-    description: 'Serene pastel gradients and soft morning light.',
-    category: 'Minimal',
-    tags: ['Pastel', 'Soft', 'Serene'],
-    backgroundImage: 'https://images.unsplash.com/photo-1519750783826-e2420f4d6871?auto=format&fit=crop&w=1200&q=80',
-    opacity: 60,
-    colors: {
-      accent: '#a29bfe',
-      background: '#f8f9fa',
-      foreground: '#2d3436',
-      terminal_colors: {
-        normal: {
-          black: '#2d3436',
-          red: '#ff7675',
-          green: '#55efc4',
-          yellow: '#ffeaa7',
-          blue: '#74b9ff',
-          magenta: '#a29bfe',
-          cyan: '#81ecec',
-          white: '#dfe6e9',
-        },
-      },
-    },
+    "id": "cyberpunk-outerview",
+    "name": "Outerview",
+    "author": "AestheticWarp",
+    "description": "A beautiful cyberpunk theme inspired by Outerview.",
+    "category": "Cyberpunk",
+    "tags": [
+      "Cyberpunk",
+      "Outerview"
+    ],
+    "backgroundImage": "images/themes/cyberpunk/outerview.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#00f2ff",
+      "background": "#0a0a0a",
+      "foreground": "#ffffff",
+      "terminal_colors": {
+        "normal": {
+          "black": "#0a0a0a",
+          "red": "#ff0055",
+          "green": "#00ffcc",
+          "yellow": "#fdfd96",
+          "blue": "#0066ff",
+          "magenta": "#cc00ff",
+          "cyan": "#00f2ff",
+          "white": "#ffffff"
+        }
+      }
+    }
   },
   {
-    id: 'snow-peak',
-    name: 'Snow Peak',
-    author: 'MinimalWarp',
-    description: 'Clean, crisp, and cold. A high-contrast light theme.',
-    category: 'Minimal',
-    tags: ['White', 'Clean', 'Modern'],
-    colors: {
-      accent: '#2f3542',
-      background: '#ffffff',
-      foreground: '#2f3542',
-      terminal_colors: {
-        normal: {
-          black: '#2f3542',
-          red: '#ff4757',
-          green: '#2ed573',
-          yellow: '#ffa502',
-          blue: '#1e90ff',
-          magenta: '#70a1ff',
-          cyan: '#7beded',
-          white: '#ffffff',
-        },
-      },
-    },
-    opacity: 100,
-  },
-
-  // --- CYBERPUNK CATEGORY ---
-  {
-    id: 'neon-tokyo',
-    name: 'Neon Tokyo',
-    author: 'CyberWarp',
-    description: 'Vibrant neon lights reflecting on wet city streets.',
-    category: 'Cyberpunk',
-    tags: ['Neon', 'Night', 'Vibrant'],
-    backgroundImage: 'https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=1200&q=80',
-    opacity: 30,
-    colors: {
-      accent: '#00f2ff',
-      background: '#0a0a0a',
-      foreground: '#ffffff',
-      terminal_colors: {
-        normal: {
-          black: '#0a0a0a',
-          red: '#ff0055',
-          green: '#00ffcc',
-          yellow: '#fdfd96',
-          blue: '#0066ff',
-          magenta: '#cc00ff',
-          cyan: '#00f2ff',
-          white: '#ffffff',
-        },
-      },
-    },
+    "id": "cyberpunk-sunstream",
+    "name": "Sunstream",
+    "author": "AestheticWarp",
+    "description": "A beautiful cyberpunk theme inspired by Sunstream.",
+    "category": "Cyberpunk",
+    "tags": [
+      "Cyberpunk",
+      "Sunstream"
+    ],
+    "backgroundImage": "images/themes/cyberpunk/sunstream.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#00f2ff",
+      "background": "#0a0a0a",
+      "foreground": "#ffffff",
+      "terminal_colors": {
+        "normal": {
+          "black": "#0a0a0a",
+          "red": "#ff0055",
+          "green": "#00ffcc",
+          "yellow": "#fdfd96",
+          "blue": "#0066ff",
+          "magenta": "#cc00ff",
+          "cyan": "#00f2ff",
+          "white": "#ffffff"
+        }
+      }
+    }
   },
   {
-    id: 'cyber-vibe',
-    name: 'Cyber Vibe',
-    author: 'CyberWarp',
-    description: 'Electric pink and deep blacks. High contrast, high energy.',
-    category: 'Cyberpunk',
-    tags: ['Pink', 'Electric', 'Dark'],
-    colors: {
-      accent: '#ff00ff',
-      background: '#000000',
-      foreground: '#ffffff',
-      terminal_colors: {
-        normal: {
-          black: '#000000',
-          red: '#ff0055',
-          green: '#00ffcc',
-          yellow: '#ffff00',
-          blue: '#00ccff',
-          magenta: '#ff00ff',
-          cyan: '#00ffff',
-          white: '#ffffff',
-        },
-      },
-    },
-    opacity: 100,
+    "id": "lofi-aesthetico",
+    "name": "Aesthetico",
+    "author": "AestheticWarp",
+    "description": "A beautiful lofi theme inspired by Aesthetico.",
+    "category": "Lofi",
+    "tags": [
+      "Lofi",
+      "Aesthetico"
+    ],
+    "backgroundImage": "images/themes/lofi/aesthetico.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#ffb3ba",
+      "background": "#1a1a2e",
+      "foreground": "#e0e0e0",
+      "terminal_colors": {
+        "normal": {
+          "black": "#1a1a2e",
+          "red": "#ff6b6b",
+          "green": "#b8e994",
+          "yellow": "#f9ed69",
+          "blue": "#a29bfe",
+          "magenta": "#fd79a8",
+          "cyan": "#81ecec",
+          "white": "#e0e0e0"
+        }
+      }
+    }
+  },
+  {
+    "id": "lofi-collapsed-hue",
+    "name": "Collapsed Hue",
+    "author": "AestheticWarp",
+    "description": "A beautiful lofi theme inspired by Collapsed Hue.",
+    "category": "Lofi",
+    "tags": [
+      "Lofi",
+      "Collapsed Hue"
+    ],
+    "backgroundImage": "images/themes/lofi/collapsed-hue.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#ffb3ba",
+      "background": "#1a1a2e",
+      "foreground": "#e0e0e0",
+      "terminal_colors": {
+        "normal": {
+          "black": "#1a1a2e",
+          "red": "#ff6b6b",
+          "green": "#b8e994",
+          "yellow": "#f9ed69",
+          "blue": "#a29bfe",
+          "magenta": "#fd79a8",
+          "cyan": "#81ecec",
+          "white": "#e0e0e0"
+        }
+      }
+    }
+  },
+  {
+    "id": "lofi-darker-room",
+    "name": "Darker Room",
+    "author": "AestheticWarp",
+    "description": "A beautiful lofi theme inspired by Darker Room.",
+    "category": "Lofi",
+    "tags": [
+      "Lofi",
+      "Darker Room"
+    ],
+    "backgroundImage": "images/themes/lofi/darker-room.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#ffb3ba",
+      "background": "#1a1a2e",
+      "foreground": "#e0e0e0",
+      "terminal_colors": {
+        "normal": {
+          "black": "#1a1a2e",
+          "red": "#ff6b6b",
+          "green": "#b8e994",
+          "yellow": "#f9ed69",
+          "blue": "#a29bfe",
+          "magenta": "#fd79a8",
+          "cyan": "#81ecec",
+          "white": "#e0e0e0"
+        }
+      }
+    }
+  },
+  {
+    "id": "lofi-glowinnight",
+    "name": "Glowinnight",
+    "author": "AestheticWarp",
+    "description": "A beautiful lofi theme inspired by Glowinnight.",
+    "category": "Lofi",
+    "tags": [
+      "Lofi",
+      "Glowinnight"
+    ],
+    "backgroundImage": "images/themes/lofi/glowinnight.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#ffb3ba",
+      "background": "#1a1a2e",
+      "foreground": "#e0e0e0",
+      "terminal_colors": {
+        "normal": {
+          "black": "#1a1a2e",
+          "red": "#ff6b6b",
+          "green": "#b8e994",
+          "yellow": "#f9ed69",
+          "blue": "#a29bfe",
+          "magenta": "#fd79a8",
+          "cyan": "#81ecec",
+          "white": "#e0e0e0"
+        }
+      }
+    }
+  },
+  {
+    "id": "lofi-hotelrain",
+    "name": "Hotelrain",
+    "author": "AestheticWarp",
+    "description": "A beautiful lofi theme inspired by Hotelrain.",
+    "category": "Lofi",
+    "tags": [
+      "Lofi",
+      "Hotelrain"
+    ],
+    "backgroundImage": "images/themes/lofi/hotelrain.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#ffb3ba",
+      "background": "#1a1a2e",
+      "foreground": "#e0e0e0",
+      "terminal_colors": {
+        "normal": {
+          "black": "#1a1a2e",
+          "red": "#ff6b6b",
+          "green": "#b8e994",
+          "yellow": "#f9ed69",
+          "blue": "#a29bfe",
+          "magenta": "#fd79a8",
+          "cyan": "#81ecec",
+          "white": "#e0e0e0"
+        }
+      }
+    }
+  },
+  {
+    "id": "lofi-leanerview",
+    "name": "Leanerview",
+    "author": "AestheticWarp",
+    "description": "A beautiful lofi theme inspired by Leanerview.",
+    "category": "Lofi",
+    "tags": [
+      "Lofi",
+      "Leanerview"
+    ],
+    "backgroundImage": "images/themes/lofi/leanerview.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#ffb3ba",
+      "background": "#1a1a2e",
+      "foreground": "#e0e0e0",
+      "terminal_colors": {
+        "normal": {
+          "black": "#1a1a2e",
+          "red": "#ff6b6b",
+          "green": "#b8e994",
+          "yellow": "#f9ed69",
+          "blue": "#a29bfe",
+          "magenta": "#fd79a8",
+          "cyan": "#81ecec",
+          "white": "#e0e0e0"
+        }
+      }
+    }
+  },
+  {
+    "id": "lofi-leanview",
+    "name": "Leanview",
+    "author": "AestheticWarp",
+    "description": "A beautiful lofi theme inspired by Leanview.",
+    "category": "Lofi",
+    "tags": [
+      "Lofi",
+      "Leanview"
+    ],
+    "backgroundImage": "images/themes/lofi/leanview.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#ffb3ba",
+      "background": "#1a1a2e",
+      "foreground": "#e0e0e0",
+      "terminal_colors": {
+        "normal": {
+          "black": "#1a1a2e",
+          "red": "#ff6b6b",
+          "green": "#b8e994",
+          "yellow": "#f9ed69",
+          "blue": "#a29bfe",
+          "magenta": "#fd79a8",
+          "cyan": "#81ecec",
+          "white": "#e0e0e0"
+        }
+      }
+    }
+  },
+  {
+    "id": "lofi-pixel-room",
+    "name": "Pixel Room",
+    "author": "AestheticWarp",
+    "description": "A beautiful lofi theme inspired by Pixel Room.",
+    "category": "Lofi",
+    "tags": [
+      "Lofi",
+      "Pixel Room"
+    ],
+    "backgroundImage": "images/themes/lofi/pixel-room.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#ffb3ba",
+      "background": "#1a1a2e",
+      "foreground": "#e0e0e0",
+      "terminal_colors": {
+        "normal": {
+          "black": "#1a1a2e",
+          "red": "#ff6b6b",
+          "green": "#b8e994",
+          "yellow": "#f9ed69",
+          "blue": "#a29bfe",
+          "magenta": "#fd79a8",
+          "cyan": "#81ecec",
+          "white": "#e0e0e0"
+        }
+      }
+    }
+  },
+  {
+    "id": "rainy-night",
+    "name": "Rainy Night",
+    "author": "AestheticWarp",
+    "description": "City lights blurred by rain on a window pane.",
+    "category": "Lofi",
+    "tags": [
+      "Rain",
+      "City",
+      "Blue"
+    ],
+    "backgroundImage": "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=1200&q=80",
+    "opacity": 35,
+    "colors": {
+      "accent": "#4cc9f0",
+      "background": "#0b0c10",
+      "foreground": "#c5c6c7",
+      "terminal_colors": {
+        "normal": {
+          "black": "#0b0c10",
+          "red": "#f72585",
+          "green": "#4cc9f0",
+          "yellow": "#fee440",
+          "blue": "#4361ee",
+          "magenta": "#7209b7",
+          "cyan": "#4895ef",
+          "white": "#c5c6c7"
+        }
+      }
+    }
+  },
+  {
+    "id": "lofi-relax",
+    "name": "Relax",
+    "author": "AestheticWarp",
+    "description": "A beautiful lofi theme inspired by Relax.",
+    "category": "Lofi",
+    "tags": [
+      "Lofi",
+      "Relax"
+    ],
+    "backgroundImage": "images/themes/lofi/relax.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#ffb3ba",
+      "background": "#1a1a2e",
+      "foreground": "#e0e0e0",
+      "terminal_colors": {
+        "normal": {
+          "black": "#1a1a2e",
+          "red": "#ff6b6b",
+          "green": "#b8e994",
+          "yellow": "#f9ed69",
+          "blue": "#a29bfe",
+          "magenta": "#fd79a8",
+          "cyan": "#81ecec",
+          "white": "#e0e0e0"
+        }
+      }
+    }
+  },
+  {
+    "id": "lofi-ultra-pastel",
+    "name": "Ultra Pastel",
+    "author": "AestheticWarp",
+    "description": "A beautiful lofi theme inspired by Ultra Pastel.",
+    "category": "Lofi",
+    "tags": [
+      "Lofi",
+      "Ultra Pastel"
+    ],
+    "backgroundImage": "images/themes/lofi/ultra-pastel.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#ffb3ba",
+      "background": "#1a1a2e",
+      "foreground": "#e0e0e0",
+      "terminal_colors": {
+        "normal": {
+          "black": "#1a1a2e",
+          "red": "#ff6b6b",
+          "green": "#b8e994",
+          "yellow": "#f9ed69",
+          "blue": "#a29bfe",
+          "magenta": "#fd79a8",
+          "cyan": "#81ecec",
+          "white": "#e0e0e0"
+        }
+      }
+    }
+  },
+  {
+    "id": "lofi-windowgreen",
+    "name": "Windowgreen",
+    "author": "AestheticWarp",
+    "description": "A beautiful lofi theme inspired by Windowgreen.",
+    "category": "Lofi",
+    "tags": [
+      "Lofi",
+      "Windowgreen"
+    ],
+    "backgroundImage": "images/themes/lofi/windowgreen.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#ffb3ba",
+      "background": "#1a1a2e",
+      "foreground": "#e0e0e0",
+      "terminal_colors": {
+        "normal": {
+          "black": "#1a1a2e",
+          "red": "#ff6b6b",
+          "green": "#b8e994",
+          "yellow": "#f9ed69",
+          "blue": "#a29bfe",
+          "magenta": "#fd79a8",
+          "cyan": "#81ecec",
+          "white": "#e0e0e0"
+        }
+      }
+    }
+  },
+  {
+    "id": "lofi-windownight",
+    "name": "Windownight",
+    "author": "AestheticWarp",
+    "description": "A beautiful lofi theme inspired by Windownight.",
+    "category": "Lofi",
+    "tags": [
+      "Lofi",
+      "Windownight"
+    ],
+    "backgroundImage": "images/themes/lofi/windownight.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#ffb3ba",
+      "background": "#1a1a2e",
+      "foreground": "#e0e0e0",
+      "terminal_colors": {
+        "normal": {
+          "black": "#1a1a2e",
+          "red": "#ff6b6b",
+          "green": "#b8e994",
+          "yellow": "#f9ed69",
+          "blue": "#a29bfe",
+          "magenta": "#fd79a8",
+          "cyan": "#81ecec",
+          "white": "#e0e0e0"
+        }
+      }
+    }
+  },
+  {
+    "id": "minimal-aguasky",
+    "name": "Aguasky",
+    "author": "AestheticWarp",
+    "description": "A beautiful minimal theme inspired by Aguasky.",
+    "category": "Minimal",
+    "tags": [
+      "Minimal",
+      "Aguasky"
+    ],
+    "backgroundImage": "images/themes/minimal/aguasky.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#a29bfe",
+      "background": "#f8f9fa",
+      "foreground": "#2d3436",
+      "terminal_colors": {
+        "normal": {
+          "black": "#2d3436",
+          "red": "#ff7675",
+          "green": "#55efc4",
+          "yellow": "#ffeaa7",
+          "blue": "#74b9ff",
+          "magenta": "#a29bfe",
+          "cyan": "#81ecec",
+          "white": "#dfe6e9"
+        }
+      }
+    }
+  },
+  {
+    "id": "minimal-bednight",
+    "name": "Bednight",
+    "author": "AestheticWarp",
+    "description": "A beautiful minimal theme inspired by Bednight.",
+    "category": "Minimal",
+    "tags": [
+      "Minimal",
+      "Bednight"
+    ],
+    "backgroundImage": "images/themes/minimal/bednight.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#a29bfe",
+      "background": "#f8f9fa",
+      "foreground": "#2d3436",
+      "terminal_colors": {
+        "normal": {
+          "black": "#2d3436",
+          "red": "#ff7675",
+          "green": "#55efc4",
+          "yellow": "#ffeaa7",
+          "blue": "#74b9ff",
+          "magenta": "#a29bfe",
+          "cyan": "#81ecec",
+          "white": "#dfe6e9"
+        }
+      }
+    }
+  },
+  {
+    "id": "minimal-bluecity",
+    "name": "Bluecity",
+    "author": "AestheticWarp",
+    "description": "A beautiful minimal theme inspired by Bluecity.",
+    "category": "Minimal",
+    "tags": [
+      "Minimal",
+      "Bluecity"
+    ],
+    "backgroundImage": "images/themes/minimal/bluecity.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#a29bfe",
+      "background": "#f8f9fa",
+      "foreground": "#2d3436",
+      "terminal_colors": {
+        "normal": {
+          "black": "#2d3436",
+          "red": "#ff7675",
+          "green": "#55efc4",
+          "yellow": "#ffeaa7",
+          "blue": "#74b9ff",
+          "magenta": "#a29bfe",
+          "cyan": "#81ecec",
+          "white": "#dfe6e9"
+        }
+      }
+    }
+  },
+  {
+    "id": "minimal-calmer-si",
+    "name": "Calmer Si",
+    "author": "AestheticWarp",
+    "description": "A beautiful minimal theme inspired by Calmer Si.",
+    "category": "Minimal",
+    "tags": [
+      "Minimal",
+      "Calmer Si"
+    ],
+    "backgroundImage": "images/themes/minimal/calmer-si.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#a29bfe",
+      "background": "#f8f9fa",
+      "foreground": "#2d3436",
+      "terminal_colors": {
+        "normal": {
+          "black": "#2d3436",
+          "red": "#ff7675",
+          "green": "#55efc4",
+          "yellow": "#ffeaa7",
+          "blue": "#74b9ff",
+          "magenta": "#a29bfe",
+          "cyan": "#81ecec",
+          "white": "#dfe6e9"
+        }
+      }
+    }
+  },
+  {
+    "id": "minimal-cloudywarm",
+    "name": "Cloudywarm",
+    "author": "AestheticWarp",
+    "description": "A beautiful minimal theme inspired by Cloudywarm.",
+    "category": "Minimal",
+    "tags": [
+      "Minimal",
+      "Cloudywarm"
+    ],
+    "backgroundImage": "images/themes/minimal/cloudywarm.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#a29bfe",
+      "background": "#f8f9fa",
+      "foreground": "#2d3436",
+      "terminal_colors": {
+        "normal": {
+          "black": "#2d3436",
+          "red": "#ff7675",
+          "green": "#55efc4",
+          "yellow": "#ffeaa7",
+          "blue": "#74b9ff",
+          "magenta": "#a29bfe",
+          "cyan": "#81ecec",
+          "white": "#dfe6e9"
+        }
+      }
+    }
+  },
+  {
+    "id": "minimal-softbeam",
+    "name": "Softbeam",
+    "author": "AestheticWarp",
+    "description": "A beautiful minimal theme inspired by Softbeam.",
+    "category": "Minimal",
+    "tags": [
+      "Minimal",
+      "Softbeam"
+    ],
+    "backgroundImage": "images/themes/minimal/softbeam.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#a29bfe",
+      "background": "#f8f9fa",
+      "foreground": "#2d3436",
+      "terminal_colors": {
+        "normal": {
+          "black": "#2d3436",
+          "red": "#ff7675",
+          "green": "#55efc4",
+          "yellow": "#ffeaa7",
+          "blue": "#74b9ff",
+          "magenta": "#a29bfe",
+          "cyan": "#81ecec",
+          "white": "#dfe6e9"
+        }
+      }
+    }
+  },
+  {
+    "id": "minimal-solar-slim",
+    "name": "Solar Slim",
+    "author": "AestheticWarp",
+    "description": "A beautiful minimal theme inspired by Solar Slim.",
+    "category": "Minimal",
+    "tags": [
+      "Minimal",
+      "Solar Slim"
+    ],
+    "backgroundImage": "images/themes/minimal/solar-slim.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#a29bfe",
+      "background": "#f8f9fa",
+      "foreground": "#2d3436",
+      "terminal_colors": {
+        "normal": {
+          "black": "#2d3436",
+          "red": "#ff7675",
+          "green": "#55efc4",
+          "yellow": "#ffeaa7",
+          "blue": "#74b9ff",
+          "magenta": "#a29bfe",
+          "cyan": "#81ecec",
+          "white": "#dfe6e9"
+        }
+      }
+    }
+  },
+  {
+    "id": "minimal-sunbow",
+    "name": "Sunbow",
+    "author": "AestheticWarp",
+    "description": "A beautiful minimal theme inspired by Sunbow.",
+    "category": "Minimal",
+    "tags": [
+      "Minimal",
+      "Sunbow"
+    ],
+    "backgroundImage": "images/themes/minimal/sunbow.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#a29bfe",
+      "background": "#f8f9fa",
+      "foreground": "#2d3436",
+      "terminal_colors": {
+        "normal": {
+          "black": "#2d3436",
+          "red": "#ff7675",
+          "green": "#55efc4",
+          "yellow": "#ffeaa7",
+          "blue": "#74b9ff",
+          "magenta": "#a29bfe",
+          "cyan": "#81ecec",
+          "white": "#dfe6e9"
+        }
+      }
+    }
+  },
+  {
+    "id": "nature-burned-view",
+    "name": "Burned View",
+    "author": "AestheticWarp",
+    "description": "A beautiful nature theme inspired by Burned View.",
+    "category": "Nature",
+    "tags": [
+      "Nature",
+      "Burned View"
+    ],
+    "backgroundImage": "images/themes/nature/burned-view.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#ccd5ae",
+      "background": "#1b1b1b",
+      "foreground": "#e9edc9",
+      "terminal_colors": {
+        "normal": {
+          "black": "#1b1b1b",
+          "red": "#e07a5f",
+          "green": "#81b29a",
+          "yellow": "#f2cc8f",
+          "blue": "#3d405b",
+          "magenta": "#9d8189",
+          "cyan": "#abc4ff",
+          "white": "#e9edc9"
+        }
+      }
+    }
+  },
+  {
+    "id": "nature-burnedstream",
+    "name": "Burnedstream",
+    "author": "AestheticWarp",
+    "description": "A beautiful nature theme inspired by Burnedstream.",
+    "category": "Nature",
+    "tags": [
+      "Nature",
+      "Burnedstream"
+    ],
+    "backgroundImage": "images/themes/nature/burnedstream.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#ccd5ae",
+      "background": "#1b1b1b",
+      "foreground": "#e9edc9",
+      "terminal_colors": {
+        "normal": {
+          "black": "#1b1b1b",
+          "red": "#e07a5f",
+          "green": "#81b29a",
+          "yellow": "#f2cc8f",
+          "blue": "#3d405b",
+          "magenta": "#9d8189",
+          "cyan": "#abc4ff",
+          "white": "#e9edc9"
+        }
+      }
+    }
+  },
+  {
+    "id": "nature-forester",
+    "name": "Forester",
+    "author": "AestheticWarp",
+    "description": "A beautiful nature theme inspired by Forester.",
+    "category": "Nature",
+    "tags": [
+      "Nature",
+      "Forester"
+    ],
+    "backgroundImage": "images/themes/nature/forester.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#ccd5ae",
+      "background": "#1b1b1b",
+      "foreground": "#e9edc9",
+      "terminal_colors": {
+        "normal": {
+          "black": "#1b1b1b",
+          "red": "#e07a5f",
+          "green": "#81b29a",
+          "yellow": "#f2cc8f",
+          "blue": "#3d405b",
+          "magenta": "#9d8189",
+          "cyan": "#abc4ff",
+          "white": "#e9edc9"
+        }
+      }
+    }
+  },
+  {
+    "id": "nature-forestshape",
+    "name": "Forestshape",
+    "author": "AestheticWarp",
+    "description": "A beautiful nature theme inspired by Forestshape.",
+    "category": "Nature",
+    "tags": [
+      "Nature",
+      "Forestshape"
+    ],
+    "backgroundImage": "images/themes/nature/forestshape.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#ccd5ae",
+      "background": "#1b1b1b",
+      "foreground": "#e9edc9",
+      "terminal_colors": {
+        "normal": {
+          "black": "#1b1b1b",
+          "red": "#e07a5f",
+          "green": "#81b29a",
+          "yellow": "#f2cc8f",
+          "blue": "#3d405b",
+          "magenta": "#9d8189",
+          "cyan": "#abc4ff",
+          "white": "#e9edc9"
+        }
+      }
+    }
+  },
+  {
+    "id": "nature-sunny-b",
+    "name": "Sunny B",
+    "author": "AestheticWarp",
+    "description": "A beautiful nature theme inspired by Sunny B.",
+    "category": "Nature",
+    "tags": [
+      "Nature",
+      "Sunny B"
+    ],
+    "backgroundImage": "images/themes/nature/sunny-b.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#ccd5ae",
+      "background": "#1b1b1b",
+      "foreground": "#e9edc9",
+      "terminal_colors": {
+        "normal": {
+          "black": "#1b1b1b",
+          "red": "#e07a5f",
+          "green": "#81b29a",
+          "yellow": "#f2cc8f",
+          "blue": "#3d405b",
+          "magenta": "#9d8189",
+          "cyan": "#abc4ff",
+          "white": "#e9edc9"
+        }
+      }
+    }
+  },
+  {
+    "id": "retro-womanaze",
+    "name": "Womanaze",
+    "author": "AestheticWarp",
+    "description": "A beautiful retro theme inspired by Womanaze.",
+    "category": "Retro",
+    "tags": [
+      "Retro",
+      "Womanaze"
+    ],
+    "backgroundImage": "images/themes/retro/womanaze.jpg",
+    "opacity": 40,
+    "colors": {
+      "accent": "#f83800",
+      "background": "#000000",
+      "foreground": "#f8f8f8",
+      "terminal_colors": {
+        "normal": {
+          "black": "#000000",
+          "red": "#a80020",
+          "green": "#00a800",
+          "yellow": "#f8b800",
+          "blue": "#0058f8",
+          "magenta": "#bc00bc",
+          "cyan": "#3cbcfc",
+          "white": "#f8f8f8"
+        }
+      }
+    }
   }
 ];

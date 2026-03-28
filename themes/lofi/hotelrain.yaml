@@ -1,0 +1,17 @@
+name: "Hotelrain (Lofi)"
+accent: "#ffb3ba"
+background: "#1a1a2e"
+foreground: "#e0e0e0"
+background_image:
+  path: "images/themes/lofi/hotelrain.jpg"
+opacity: 40
+terminal_colors:
+  normal:
+    black: "#1a1a2e"
+    red: "#ff6b6b"
+    green: "#b8e994"
+    yellow: "#f9ed69"
+    blue: "#a29bfe"
+    magenta: "#fd79a8"
+    cyan: "#81ecec"
+    white: "#e0e0e0"

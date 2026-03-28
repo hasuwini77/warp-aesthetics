@@ -5,7 +5,7 @@ import { themes } from '@/data/themes';
 import ThemeCard from '@/components/ThemeCard';
 import styles from './page.module.css';
 
-const CATEGORIES = ['All', 'Lofi', 'Anime', 'Retro', 'Minimal', 'Cyberpunk'];
+const CATEGORIES = ['All', 'Lofi', 'Anime', 'Retro', 'Minimal', 'Cyberpunk', 'Nature'];
 
 export default function Home() {
   const [search, setSearch] = useState('');

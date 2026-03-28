@@ -1,0 +1,17 @@
+name: "Forester (Nature)"
+accent: "#ccd5ae"
+background: "#1b1b1b"
+foreground: "#e9edc9"
+background_image:
+  path: "images/themes/nature/forester.jpg"
+opacity: 40
+terminal_colors:
+  normal:
+    black: "#1b1b1b"
+    red: "#e07a5f"
+    green: "#81b29a"
+    yellow: "#f2cc8f"
+    blue: "#3d405b"
+    magenta: "#9d8189"
+    cyan: "#abc4ff"
+    white: "#e9edc9"

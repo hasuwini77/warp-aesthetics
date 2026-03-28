@@ -1,0 +1,17 @@
+name: "Sunstream (Cyberpunk)"
+accent: "#00f2ff"
+background: "#0a0a0a"
+foreground: "#ffffff"
+background_image:
+  path: "images/themes/cyberpunk/sunstream.jpg"
+opacity: 40
+terminal_colors:
+  normal:
+    black: "#0a0a0a"
+    red: "#ff0055"
+    green: "#00ffcc"
+    yellow: "#fdfd96"
+    blue: "#0066ff"
+    magenta: "#cc00ff"
+    cyan: "#00f2ff"
+    white: "#ffffff"
