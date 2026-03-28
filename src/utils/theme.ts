@@ -1,7 +1,8 @@
 import { Theme } from '@/data/themes';
+import JSZip from 'jszip';
 
-export const generateThemeYaml = (theme: Theme): string => {
-  const { colors, backgroundImage, opacity } = theme;
+export const generateThemeYaml = (theme: Theme, isLocal: boolean = false): string => {
+  const { colors, backgroundImage, opacity, id } = theme;
   
   let yaml = '';
   yaml += `accent: '${colors.accent}'\n`;
@@ -11,7 +12,10 @@ export const generateThemeYaml = (theme: Theme): string => {
   
   if (backgroundImage) {
     yaml += `background_image:\n`;
-    yaml += `  path: '${backgroundImage}'\n`;
+    // If it's for a local zip download, we point to the image in the zip's structure
+    // Otherwise, we use the original URL (e.g., Unsplash or local dev path)
+    const imagePath = isLocal ? `images/${id}.jpg` : backgroundImage;
+    yaml += `  path: '${imagePath}'\n`;
     yaml += `  opacity: ${opacity || 100}\n`;
   }
   
@@ -38,13 +42,34 @@ export const generateThemeYaml = (theme: Theme): string => {
   return yaml;
 };
 
-export const downloadTheme = (theme: Theme) => {
-  const yaml = generateThemeYaml(theme);
-  const blob = new Blob([yaml], { type: 'text/yaml' });
-  const url = URL.createObjectURL(blob);
+export const downloadTheme = async (theme: Theme) => {
+  const zip = new JSZip();
+  const folder = zip.folder(theme.id);
+  
+  if (!folder) return;
+
+  // 1. Add the YAML
+  const yaml = generateThemeYaml(theme, true);
+  folder.file(`${theme.id}.yaml`, yaml);
+
+  // 2. Fetch and add the image if it exists
+  if (theme.backgroundImage) {
+    try {
+      const response = await fetch(theme.backgroundImage);
+      const blob = await response.blob();
+      folder.file(`images/${theme.id}.jpg`, blob);
+    } catch (err) {
+      console.error('Failed to bundle image:', err);
+      // Fallback: still download the YAML even if image fetch fails
+    }
+  }
+
+  // 3. Generate and download zip
+  const content = await zip.generateAsync({ type: 'blob' });
+  const url = URL.createObjectURL(content);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `${theme.id}.yaml`;
+  a.download = `${theme.id}-package.zip`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);

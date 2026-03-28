@@ -12,6 +12,7 @@ interface ThemeCardProps {
 
 const ThemeCard: React.FC<ThemeCardProps> = ({ theme }) => {
   const [copied, setCopied] = useState(false);
+  const [downloading, setDownloading] = useState(false);
 
   const handleCopy = async () => {
     const yaml = generateThemeYaml(theme);
@@ -19,6 +20,17 @@ const ThemeCard: React.FC<ThemeCardProps> = ({ theme }) => {
     if (success) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  const handleDownload = async () => {
+    setDownloading(true);
+    try {
+      await downloadTheme(theme);
+    } catch (err) {
+      console.error('Download failed:', err);
+    } finally {
+      setDownloading(false);
     }
   };
 
@@ -45,9 +57,10 @@ const ThemeCard: React.FC<ThemeCardProps> = ({ theme }) => {
         <div className={styles.actions}>
           <button 
             className={styles.downloadBtn}
-            onClick={() => downloadTheme(theme)}
+            onClick={handleDownload}
+            disabled={downloading}
           >
-            Download YAML
+            {downloading ? 'Bundling...' : 'Download Theme'}
           </button>
           <button 
             className={styles.copyBtn}
