@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Warped Aesthetics ✨
 
-## Getting Started
+Warped Aesthetics is a community-driven terminal theme gallery for the Warp terminal. It specializes in themes with unique "aesthetic" vibes, from lo-fi and anime to pastel and cyberpunk.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Aesthetic Themes:** Hand-curated themes with soft palettes and high contrast.
+- **Background Image Support:** Seamlessly integrate backgrounds into your terminal.
+- **Warp Optimized:** Direct YAML export for the Warp terminal.
+- **Open Source & Community-Driven:** Anyone can contribute!
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## New: Background Themes 🖼️
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+We've just added several new themes with beautiful, light backgrounds:
+- **Lofi Study:** Relaxing vibes with a soft purple overlay.
+- **Sakura Dream:** Pastel pinks and cherry blossom aesthetics.
+- **Neon Tokyo:** Cyberpunk cityscapes with vibrant contrasts.
+- **Pastel Horizon:** Serene morning light gradients.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## How to use
 
-## Learn More
+1. Browse the [gallery](https://warped-aesthetics.vercel.app).
+2. Find a theme you love.
+3. Click "Download YAML" and move the file to your `~/.warp/themes/` directory.
+4. Enjoy your new aesthetic terminal!
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+We are an open-source project! If you have a theme you'd like to share, please check our [Contributing Guide](CONTRIBUTING.md).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Open Source Vision
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Warped Aesthetics is a free resource. We believe in building a beautiful workspace for everyone.
