@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { themes } from '@/data/themes';
 import ThemeCard from '@/components/ThemeCard';
+import InstallationGuide from '@/components/InstallationGuide';
 import styles from './page.module.css';
 
 const CATEGORIES = ['All', 'Lofi', 'Anime', 'Retro', 'Minimal', 'Cyberpunk', 'Nature'];
@@ -10,6 +11,7 @@ const CATEGORIES = ['All', 'Lofi', 'Anime', 'Retro', 'Minimal', 'Cyberpunk', 'Na
 export default function Home() {
   const [search, setSearch] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
+  const [isGuideOpen, setIsGuideOpen] = useState(false);
 
   const filteredThemes = themes.filter(theme => {
     const matchesSearch = 
@@ -49,6 +51,13 @@ export default function Home() {
             </button>
           ))}
         </div>
+
+        <button 
+          className={styles.guideBtn}
+          onClick={() => setIsGuideOpen(true)}
+        >
+          📖 How to Install
+        </button>
       </header>
 
       <section className={styles.gallery}>
@@ -67,6 +76,11 @@ export default function Home() {
       <footer className={styles.footer}>
         <p>© 2026 WarpedAesthetics. Built for the Warp community.</p>
       </footer>
+
+      <InstallationGuide 
+        isOpen={isGuideOpen} 
+        onClose={() => setIsGuideOpen(false)} 
+      />
     </main>
   );
 }
