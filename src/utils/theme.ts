@@ -12,9 +12,8 @@ export const generateThemeYaml = (theme: Theme, isLocal: boolean = false): strin
   
   if (backgroundImage) {
     yaml += `background_image:\n`;
-    // If it's for a local zip download, we point to the image in the zip's structure
-    // Otherwise, we use the original URL (e.g., Unsplash or local dev path)
-    const imagePath = isLocal ? `images/${id}.jpg` : backgroundImage;
+    // Simplest approach: the image sits in the SAME folder as the YAML
+    const imagePath = isLocal ? `${id}.jpg` : backgroundImage;
     yaml += `  path: '${imagePath}'\n`;
     yaml += `  opacity: ${opacity || 100}\n`;
   }
@@ -44,23 +43,19 @@ export const generateThemeYaml = (theme: Theme, isLocal: boolean = false): strin
 
 export const downloadTheme = async (theme: Theme) => {
   const zip = new JSZip();
-  const folder = zip.folder(theme.id);
   
-  if (!folder) return;
-
-  // 1. Add the YAML
+  // 1. Add the YAML to the ROOT of the zip
   const yaml = generateThemeYaml(theme, true);
-  folder.file(`${theme.id}.yaml`, yaml);
+  zip.file(`${theme.id}.yaml`, yaml);
 
-  // 2. Fetch and add the image if it exists
+  // 2. Fetch and add the image to the ROOT of the zip if it exists
   if (theme.backgroundImage) {
     try {
       const response = await fetch(theme.backgroundImage);
       const blob = await response.blob();
-      folder.file(`images/${theme.id}.jpg`, blob);
+      zip.file(`${theme.id}.jpg`, blob);
     } catch (err) {
       console.error('Failed to bundle image:', err);
-      // Fallback: still download the YAML even if image fetch fails
     }
   }
 
@@ -69,7 +64,7 @@ export const downloadTheme = async (theme: Theme) => {
   const url = URL.createObjectURL(content);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `${theme.id}-package.zip`;
+  a.download = `${theme.id}.zip`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
