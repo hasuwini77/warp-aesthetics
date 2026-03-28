@@ -51,14 +51,19 @@ export default function Home() {
             </button>
           ))}
         </div>
+      </header>
 
+      <div className={styles.controlsRow}>
+        <div className={styles.resultsCount}>
+          Found {filteredThemes.length} {filteredThemes.length === 1 ? 'theme' : 'themes'}
+        </div>
         <button 
-          className={styles.guideBtn}
+          className={styles.guideBtnRow}
           onClick={() => setIsGuideOpen(true)}
         >
           📖 How to Install
         </button>
-      </header>
+      </div>
 
       <section className={styles.gallery}>
         {filteredThemes.length > 0 ? (
