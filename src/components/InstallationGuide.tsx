@@ -42,7 +42,7 @@ const InstallationGuide: React.FC<InstallationGuideProps> = ({ isOpen, onClose }
           </div>
 
           <h3>Step 4: Activate in Warp</h3>
-          <p>Open Warp, go to <strong>Settings > Appearance > Themes</strong>, and you should see your new theme under the "Custom" section. Select it to apply!</p>
+          <p>Open Warp, go to <strong>Settings &gt; Appearance &gt; Themes</strong>, and you should see your new theme under the "Custom" section. Select it to apply!</p>
         </div>
       </div>
     </div>
