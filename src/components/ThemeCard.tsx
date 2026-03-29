@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Theme } from '@/data/themes';
 import TerminalPreview, { CodeLanguage } from './TerminalPreview';
 import { downloadTheme, copyToClipboard, generateThemeYaml } from '@/utils/theme';
@@ -26,6 +26,28 @@ const ThemeCard: React.FC<ThemeCardProps> = ({ theme }) => {
   // Aesthetic Lab State
   const [customOpacity, setCustomOpacity] = useState(theme.opacity ?? 100);
   const [customBlur, setCustomBlur] = useState(0);
+
+  // Load customizations from LocalStorage on mount
+  useEffect(() => {
+    const saved = localStorage.getItem(`vibe-${theme.id}`);
+    if (saved) {
+      try {
+        const { opacity, blur } = JSON.parse(saved);
+        setCustomOpacity(opacity);
+        setCustomBlur(blur);
+      } catch (e) {
+        console.error("Failed to load saved vibe", e);
+      }
+    }
+  }, [theme.id]);
+
+  // Save customizations whenever they change
+  useEffect(() => {
+    localStorage.setItem(`vibe-${theme.id}`, JSON.stringify({
+      opacity: customOpacity,
+      blur: customBlur
+    }));
+  }, [customOpacity, customBlur, theme.id]);
 
   const handleCopy = async () => {
     const yaml = generateThemeYaml({ ...theme, opacity: customOpacity }, false, customBlur);
@@ -113,7 +135,7 @@ const ThemeCard: React.FC<ThemeCardProps> = ({ theme }) => {
               <input 
                 type="range" 
                 min="0" 
-                max="20" 
+                max="64" 
                 step="1"
                 value={customBlur} 
                 onChange={(e) => setCustomBlur(Number(e.target.value))}
