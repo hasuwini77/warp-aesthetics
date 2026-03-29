@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
-import ColorThief from 'colorthief';
 import TerminalPreview from '@/components/TerminalPreview';
 import { generateThemeYaml, copyToClipboard } from '@/utils/theme';
 import { Theme, ThemeColors } from '@/data/themes';
@@ -22,7 +21,7 @@ export default function CreateTheme() {
       const reader = new FileReader();
       reader.onload = (event) => {
         setImage(event.target?.result as string);
-        setColors(null); // Reset colors for new image
+        setColors(null);
       };
       reader.readAsDataURL(file);
     }
@@ -31,36 +30,42 @@ export default function CreateTheme() {
   const extractColors = () => {
     if (!imgRef.current) return;
     
+    // Dynamically require colorthief to avoid build errors with ESM/SSR
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const ColorThief = require('colorthief').default || require('colorthief');
     const colorThief = new ColorThief();
-    const palette = colorThief.getPalette(imgRef.current, 10);
-    const dominant = colorThief.getColor(imgRef.current);
     
-    const rgbToHex = (r: number, g: number, b: number) => 
-      '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('');
+    try {
+      const palette = colorThief.getPalette(imgRef.current, 10);
+      const dominant = colorThief.getColor(imgRef.current);
+      
+      const rgbToHex = (r: number, g: number, b: number) => 
+        '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('');
 
-    const hexPalette = palette.map((p: number[]) => rgbToHex(p[0], p[1], p[2]));
-    const hexDominant = rgbToHex(dominant[0], dominant[1], dominant[2]);
+      const hexPalette = palette.map((p: number[]) => rgbToHex(p[0], p[1], p[2]));
 
-    // Create a balanced theme based on extracted colors
-    const newColors: ThemeColors = {
-      accent: hexPalette[0],
-      background: '#0d0d0d', // Default dark for terminal
-      foreground: '#ffffff',
-      terminal_colors: {
-        normal: {
-          black: '#0d0d0d',
-          red: hexPalette[1] || '#ff5555',
-          green: hexPalette[2] || '#50fa7b',
-          yellow: hexPalette[3] || '#f1fa8c',
-          blue: hexPalette[4] || '#8be9fd',
-          magenta: hexPalette[5] || '#ff79c6',
-          cyan: hexPalette[6] || '#8be9fd',
-          white: '#ffffff',
+      const newColors: ThemeColors = {
+        accent: hexPalette[0],
+        background: '#0d0d0d',
+        foreground: '#ffffff',
+        terminal_colors: {
+          normal: {
+            black: '#0d0d0d',
+            red: hexPalette[1] || '#ff5555',
+            green: hexPalette[2] || '#50fa7b',
+            yellow: hexPalette[3] || '#f1fa8c',
+            blue: hexPalette[4] || '#8be9fd',
+            magenta: hexPalette[5] || '#ff79c6',
+            cyan: hexPalette[6] || '#8be9fd',
+            white: '#ffffff',
+          }
         }
-      }
-    };
-    
-    setColors(newColors);
+      };
+      
+      setColors(newColors);
+    } catch (err) {
+      console.error('Extraction failed:', err);
+    }
   };
 
   const handleCopy = () => {
@@ -92,8 +97,7 @@ export default function CreateTheme() {
         <p className={styles.subtitle}>Upload an image and let AI extract the perfect aesthetic palette.</p>
       </header>
 
-      <div className={styles.gallery} style={{ gridTemplateColumns: '1fr 1fr' }}>
-        {/* Left: Upload and Controls */}
+      <div className={styles.gallery} style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))' }}>
         <div className={`${styles.themeCard} glass card`} style={{ padding: '30px' }}>
           <h3 style={{ marginBottom: '20px' }}>1. Upload Background</h3>
           <input 
@@ -154,7 +158,6 @@ export default function CreateTheme() {
           </button>
         </div>
 
-        {/* Right: Preview */}
         <div className={styles.previewContainer} style={{ background: 'transparent' }}>
           <h3 style={{ marginBottom: '20px', color: 'white' }}>3. Live Preview</h3>
           {colors ? (
