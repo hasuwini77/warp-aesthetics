@@ -36,14 +36,28 @@ const TerminalPreview: React.FC<TerminalPreviewProps> = ({
   blur = 0,
   language = 'shell' 
 }) => {
-  const bgStyle: React.CSSProperties = {
+  // Container style handles the base background color
+  const containerStyle: React.CSSProperties = {
     backgroundColor: colors.background,
+    position: 'relative',
+    overflow: 'hidden',
+  };
+
+  // Background Image style with blur
+  const bgImageStyle: React.CSSProperties = {
+    position: 'absolute',
+    top: -blur * 2, // Offset to prevent white edges when blurring
+    left: -blur * 2,
+    right: -blur * 2,
+    bottom: -blur * 2,
     backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    position: 'relative',
+    filter: blur > 0 ? `blur(${blur}px)` : 'none',
+    zIndex: 0,
   };
 
+  // Overlay for color tinting and opacity
   const overlayStyle: React.CSSProperties = {
     position: 'absolute',
     top: 0,
@@ -52,8 +66,6 @@ const TerminalPreview: React.FC<TerminalPreviewProps> = ({
     bottom: 0,
     backgroundColor: colors.background,
     opacity: (100 - opacity) / 100,
-    backdropFilter: blur > 0 ? `blur(${blur}px)` : 'none',
-    WebkitBackdropFilter: blur > 0 ? `blur(${blur}px)` : 'none',
     zIndex: 1,
   };
 
@@ -250,7 +262,8 @@ const TerminalPreview: React.FC<TerminalPreviewProps> = ({
   };
 
   return (
-    <div className={styles.terminalWindow} style={bgStyle}>
+    <div className={styles.terminalWindow} style={containerStyle}>
+      <div style={bgImageStyle}></div>
       <div style={overlayStyle}></div>
       <div className={styles.content} style={{ color: colors.foreground, zIndex: 2 }}>
         <div className={styles.header}>

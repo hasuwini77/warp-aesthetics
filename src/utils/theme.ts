@@ -19,6 +19,7 @@ export const generateThemeYaml = (theme: Theme, isLocal: boolean = false, blur: 
   
   if (backgroundImage) {
     yaml += `background_image:\n`;
+    // Simplest approach: the image sits in the SAME folder as the YAML
     const imagePath = isLocal ? `${id}.jpg` : backgroundImage;
     yaml += `  path: '${imagePath}'\n`;
     yaml += `  opacity: ${opacity || 100}\n`;
