@@ -25,6 +25,7 @@ interface TerminalPreviewProps {
   colors: ThemeColors;
   backgroundImage?: string;
   opacity?: number;
+  blur?: number;
   language?: CodeLanguage;
 }
 
@@ -32,6 +33,7 @@ const TerminalPreview: React.FC<TerminalPreviewProps> = ({
   colors, 
   backgroundImage, 
   opacity = 100,
+  blur = 0,
   language = 'shell' 
 }) => {
   const bgStyle: React.CSSProperties = {
@@ -50,6 +52,8 @@ const TerminalPreview: React.FC<TerminalPreviewProps> = ({
     bottom: 0,
     backgroundColor: colors.background,
     opacity: (100 - opacity) / 100,
+    backdropFilter: blur > 0 ? `blur(${blur}px)` : 'none',
+    WebkitBackdropFilter: blur > 0 ? `blur(${blur}px)` : 'none',
     zIndex: 1,
   };
 

@@ -21,9 +21,14 @@ const ThemeCard: React.FC<ThemeCardProps> = ({ theme }) => {
   const [copied, setCopied] = useState(false);
   const [downloading, setDownloading] = useState(false);
   const [language, setLanguage] = useState<CodeLanguage>('shell');
+  
+  // Aesthetic Lab State
+  const [customOpacity, setCustomOpacity] = useState(theme.opacity ?? 100);
+  const [customBlur, setCustomBlur] = useState(0);
 
   const handleCopy = async () => {
-    const yaml = generateThemeYaml(theme);
+    // Generate YAML with customized overrides
+    const yaml = generateThemeYaml({ ...theme, opacity: customOpacity }, false, customBlur);
     const success = await copyToClipboard(yaml);
     if (success) {
       setCopied(true);
@@ -34,7 +39,8 @@ const ThemeCard: React.FC<ThemeCardProps> = ({ theme }) => {
   const handleDownload = async () => {
     setDownloading(true);
     try {
-      await downloadTheme(theme);
+      // Pass the customized theme version
+      await downloadTheme({ ...theme, opacity: customOpacity }, customBlur);
     } catch (err) {
       console.error('Download failed:', err);
     } finally {
@@ -59,21 +65,59 @@ const ThemeCard: React.FC<ThemeCardProps> = ({ theme }) => {
         <TerminalPreview 
           colors={theme.colors} 
           backgroundImage={theme.backgroundImage} 
-          opacity={theme.opacity}
+          opacity={customOpacity}
+          blur={customBlur}
           language={language}
         />
       </div>
+      
       <div className={styles.themeInfo}>
         <div className={styles.themeHeader}>
           <h3>{theme.name}</h3>
           <span className={styles.author}>by {theme.author}</span>
         </div>
         <p className={styles.description}>{theme.description}</p>
+        
+        {theme.backgroundImage && (
+          <div className={styles.aestheticLab}>
+            <div className={styles.sliderGroup}>
+              <div className={styles.sliderHeader}>
+                <label>Opacity</label>
+                <span>{customOpacity}%</span>
+              </div>
+              <input 
+                type="range" 
+                min="0" 
+                max="100" 
+                value={customOpacity} 
+                onChange={(e) => setCustomOpacity(Number(e.target.value))}
+                className={styles.slider}
+              />
+            </div>
+            <div className={styles.sliderGroup}>
+              <div className={styles.sliderHeader}>
+                <label>Background Blur</label>
+                <span>{customBlur}px</span>
+              </div>
+              <input 
+                type="range" 
+                min="0" 
+                max="20" 
+                step="1"
+                value={customBlur} 
+                onChange={(e) => setCustomBlur(Number(e.target.value))}
+                className={styles.slider}
+              />
+            </div>
+          </div>
+        )}
+
         <div className={styles.tags}>
           {theme.tags.map(tag => (
             <span key={tag} className={styles.tag}>{tag}</span>
           ))}
         </div>
+        
         <div className={styles.actions}>
           <button 
             className={styles.downloadBtn}

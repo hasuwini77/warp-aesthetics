@@ -1,10 +1,17 @@
 import { Theme } from '@/data/themes';
 import JSZip from 'jszip';
 
-export const generateThemeYaml = (theme: Theme, isLocal: boolean = false): string => {
+export const generateThemeYaml = (theme: Theme, isLocal: boolean = false, blur: number = 0): string => {
   const { colors, backgroundImage, opacity, id } = theme;
   
   let yaml = '';
+  
+  // If the user tweaked the blur in the Aesthetic Lab, leave a helpful comment!
+  if (blur > 0) {
+    yaml += `# Note: For the best aesthetic, enable background blur in Warp's appearance settings.\n`;
+    yaml += `# Recommended blur radius: ${blur}px\n\n`;
+  }
+
   yaml += `accent: '${colors.accent}'\n`;
   yaml += `background: '${colors.background}'\n`;
   yaml += `details: 'darker'\n`;
@@ -12,7 +19,6 @@ export const generateThemeYaml = (theme: Theme, isLocal: boolean = false): strin
   
   if (backgroundImage) {
     yaml += `background_image:\n`;
-    // Simplest approach: the image sits in the SAME folder as the YAML
     const imagePath = isLocal ? `${id}.jpg` : backgroundImage;
     yaml += `  path: '${imagePath}'\n`;
     yaml += `  opacity: ${opacity || 100}\n`;
@@ -41,11 +47,11 @@ export const generateThemeYaml = (theme: Theme, isLocal: boolean = false): strin
   return yaml;
 };
 
-export const downloadTheme = async (theme: Theme) => {
+export const downloadTheme = async (theme: Theme, blur: number = 0) => {
   const zip = new JSZip();
   
   // 1. Add the YAML to the ROOT of the zip
-  const yaml = generateThemeYaml(theme, true);
+  const yaml = generateThemeYaml(theme, true, blur);
   zip.file(`${theme.id}.yaml`, yaml);
 
   // 2. Fetch and add the image to the ROOT of the zip if it exists
