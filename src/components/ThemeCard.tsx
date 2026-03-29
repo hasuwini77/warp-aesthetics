@@ -81,7 +81,10 @@ const ThemeCard: React.FC<ThemeCardProps> = ({ theme }) => {
       
       <div className={styles.themeInfo}>
         <div className={styles.themeHeader}>
-          <h3>{theme.name}</h3>
+          <div className={styles.titleWrapper}>
+            <h3>{theme.name}</h3>
+            <code className={styles.idBadge}>{theme.id}</code>
+          </div>
           <span className={styles.author}>by {theme.author}</span>
         </div>
         <p className={styles.description}>{theme.description}</p>
