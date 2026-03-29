@@ -52,6 +52,11 @@ export default function Home() {
             </button>
           ))}
         </div>
+
+        <div className={styles.cliBanner}>
+          <span className={styles.cliHighlight}>⚡️ Pro Tip:</span> Install any theme instantly via terminal:
+          <code>npx warped-themes install [theme-id]</code>
+        </div>
       </header>
 
       <div className={styles.controlsRow}>
