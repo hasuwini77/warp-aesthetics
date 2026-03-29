@@ -5,6 +5,7 @@ import { themes } from '@/data/themes';
 import ThemeCard from '@/components/ThemeCard';
 import InstallationGuide from '@/components/InstallationGuide';
 import styles from './page.module.css';
+import Link from 'next/link';
 
 const CATEGORIES = ['All', 'Lofi', 'Anime', 'Retro', 'Minimal', 'Cyberpunk', 'Nature'];
 
@@ -57,12 +58,17 @@ export default function Home() {
         <div className={styles.resultsCount}>
           Found {filteredThemes.length} {filteredThemes.length === 1 ? 'theme' : 'themes'}
         </div>
-        <button 
-          className={styles.guideBtnRow}
-          onClick={() => setIsGuideOpen(true)}
-        >
-          📖 How to Install
-        </button>
+        <div style={{ display: 'flex', gap: '12px' }}>
+          <button 
+            className={styles.guideBtnRow}
+            onClick={() => setIsGuideOpen(true)}
+          >
+            📖 How to Install
+          </button>
+          <Link href="/create" className={styles.guideBtnRow} style={{ textDecoration: 'none', background: 'var(--neon-purple)', borderColor: 'var(--neon-purple)' }}>
+            🤖 AI Theme Creator
+          </Link>
+        </div>
       </div>
 
       <section className={styles.gallery}>
