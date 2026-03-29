@@ -1,0 +1,20 @@
+{
+  "name": "warped-themes",
+  "version": "1.0.0",
+  "description": "Zero-click install for Warped Aesthetics terminal themes.",
+  "main": "index.js",
+  "bin": {
+    "warped": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": ["warp", "terminal", "theme", "aesthetics"],
+  "author": "Warped Aesthetics Community",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^11.1.0",
+    "ora": "^5.4.1"
+  }
+}
