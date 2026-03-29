@@ -19,6 +19,7 @@ const LANGUAGES: { id: CodeLanguage; label: string }[] = [
 
 const ThemeCard: React.FC<ThemeCardProps> = ({ theme }) => {
   const [copied, setCopied] = useState(false);
+  const [cliCopied, setCliCopied] = useState(false);
   const [downloading, setDownloading] = useState(false);
   const [language, setLanguage] = useState<CodeLanguage>('shell');
   
@@ -27,7 +28,6 @@ const ThemeCard: React.FC<ThemeCardProps> = ({ theme }) => {
   const [customBlur, setCustomBlur] = useState(0);
 
   const handleCopy = async () => {
-    // Generate YAML with customized overrides
     const yaml = generateThemeYaml({ ...theme, opacity: customOpacity }, false, customBlur);
     const success = await copyToClipboard(yaml);
     if (success) {
@@ -36,10 +36,18 @@ const ThemeCard: React.FC<ThemeCardProps> = ({ theme }) => {
     }
   };
 
+  const handleCopyCLI = async () => {
+    const command = `npx warped-themes install ${theme.id}`;
+    const success = await copyToClipboard(command);
+    if (success) {
+      setCliCopied(true);
+      setTimeout(() => setCliCopied(false), 2000);
+    }
+  };
+
   const handleDownload = async () => {
     setDownloading(true);
     try {
-      // Pass the customized theme version
       await downloadTheme({ ...theme, opacity: customOpacity }, customBlur);
     } catch (err) {
       console.error('Download failed:', err);
@@ -124,13 +132,19 @@ const ThemeCard: React.FC<ThemeCardProps> = ({ theme }) => {
             onClick={handleDownload}
             disabled={downloading}
           >
-            {downloading ? 'Bundling...' : 'Download Theme'}
+            {downloading ? 'Bundling...' : 'Download'}
+          </button>
+          <button 
+            className={styles.cliBtn}
+            onClick={handleCopyCLI}
+          >
+            {cliCopied ? 'Copied!' : 'Terminal'}
           </button>
           <button 
             className={styles.copyBtn}
             onClick={handleCopy}
           >
-            {copied ? 'Copied!' : 'Copy Config'}
+            {copied ? 'Copied!' : 'YAML'}
           </button>
         </div>
       </div>
